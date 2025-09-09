@@ -7,6 +7,18 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <NoWarn>CS8500</NoWarn>
     <AnalysisMode>Recommended</AnalysisMode>
+    <AssemblyName>Schizo</AssemblyName>
+    <RootNamespace>Schizo</RootNamespace>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>..\piker\Plugins</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugType>none</DebugType>
   </PropertyGroup>
 
   <ItemGroup>
@@ -47,5 +59,9 @@
       <Private>false</Private>
     </Reference>
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="mv &quot;D:\SteamLibrary\steamapps\common\Hacknet\Extensions\piker\Plugins\net472\Schizo.dll&quot; D:\SteamLibrary\steamapps\common\Hacknet\Extensions\piker\Plugins\Schizo.dll&#xA;rmdir /s /q &quot;D:\SteamLibrary\steamapps\common\Hacknet\Extensions\piker\Plugins\net472&quot;" />
+  </Target>
 
 </Project>
