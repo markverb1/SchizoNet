@@ -6,11 +6,12 @@ using HarmonyLib;
 namespace Schizo
 {
     [BepInPlugin(ModGUID, ModName, ModVer)]
+    [BepInDependency("autumnrivers.stuxnet")]
     public class Schizo : HacknetPlugin
     {
         public const string ModGUID = "com.markverb1.SchizoNet";
         public const string ModName = "SchizoNet";
-        public const string ModVer = "1.0.1";
+        public const string ModVer = "1.1.0";
 
         public override bool Load()
         {
@@ -24,8 +25,10 @@ namespace Schizo
                     HarmonyInstance.PatchAll(type);
                 }
             }
-
             Pathfinder.Action.ActionManager.RegisterAction<ScreenGlitch>("ScreenGlitch");
+            Pathfinder.Action.ActionManager.RegisterAction<AddFlag>("AddFlag");
+            Pathfinder.Action.ActionManager.RegisterAction<RemoveFlag>("RemoveFlag");
+            Pathfinder.Action.ConditionManager.RegisterCondition<DebugCommandsEnabled>("DebugCommandsEnabled");
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"~- SchizoNet v{ModVer} -~");
             return true;
