@@ -19,6 +19,8 @@
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
@@ -61,7 +63,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="mv &quot;D:\SteamLibrary\steamapps\common\Hacknet\Extensions\piker\Plugins\net472\Schizo.dll&quot; D:\SteamLibrary\steamapps\common\Hacknet\Extensions\piker\Plugins\Schizo.dll&#xA;rmdir /s /q &quot;D:\SteamLibrary\steamapps\common\Hacknet\Extensions\piker\Plugins\net472&quot;" />
+    <Exec Command="rem mv &quot;D:\SteamLibrary\steamapps\common\Hacknet\Extensions\piker\Plugins\net472\Schizo.dll&quot; D:\SteamLibrary\steamapps\common\Hacknet\Extensions\piker\Plugins\Schizo.dll&#xA;rem rmdir /s /q &quot;D:\SteamLibrary\steamapps\common\Hacknet\Extensions\piker\Plugins\net472&quot;" />
   </Target>
 
 </Project>
