@@ -66,4 +66,8 @@
     <Exec Command="rem mv &quot;D:\SteamLibrary\steamapps\common\Hacknet\Extensions\piker\Plugins\net472\Schizo.dll&quot; D:\SteamLibrary\steamapps\common\Hacknet\Extensions\piker\Plugins\Schizo.dll&#xA;rem rmdir /s /q &quot;D:\SteamLibrary\steamapps\common\Hacknet\Extensions\piker\Plugins\net472&quot;" />
   </Target>
 
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="del &quot;%USERPROFILE%\Documents\My Games\HacknetPathfinder\Accounts\Piker\save_test.xml&quot;" />
+  </Target>
+
 </Project>
