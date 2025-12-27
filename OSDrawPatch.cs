@@ -44,7 +44,6 @@ namespace Schizo
             {
                 PostProcessor.DrawDangerModeFliters();
             }
-
             return false;
         }
     }

@@ -2,6 +2,7 @@
 using Pathfinder.Util;
 using Hacknet;
 using System;
+using Hacknet.Effects;
 
 namespace Schizo;
 
@@ -17,9 +18,11 @@ public class ScreenGlitch : DelayablePathfinderAction
 
     public override void Trigger(OS os)
     {
-        sEnabled = Enabled == "true";
-        sIntensity = Intensity;
-        sDelay = GDelay;
+        sEnabled = Enabled.ToLower() == "true";
+        if (sEnabled) FlickeringTextEffect.internalTimer = 0; 
+        sIntensity = Intensity > 0 ? Intensity : sIntensity;
+        sDelay = GDelay > 0 ? GDelay : sDelay;
+        
         //Hacknet.PostProcessor.EndingSequenceFlashOutActive = true;
     }
 }
